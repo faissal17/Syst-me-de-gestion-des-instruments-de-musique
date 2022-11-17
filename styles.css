@@ -1,24 +1,31 @@
+body {
+    overflow-x: hidden;
+}
+
 .form-style {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-bottom: 48px;
+    margin-right: 55%;
 }
 
 .form-style form {
     padding: 20px;
     text-align: center;
-    width: 500px;
-    background: rgb(2, 0, 36);
-    background: linear-gradient( 90deg, rgba(2, 0, 36, 1) 0%, rgba(146, 29, 73, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    width: 450px;
+    background: #232526;
+    background: -webkit-linear-gradient(to right, #414345, #232526);
+    background: linear-gradient(to right, #414345, #232526);
+    border-radius: 35px;
 }
 
 .form-style form h3 {
     font-size: 30px;
     text-transform: uppercase;
     margin-bottom: 10px;
-    color: black;
+    color: white;
 }
 
 .form-style form input,
@@ -27,7 +34,6 @@
     padding: 10px 15px;
     font-size: 17px;
     margin: 8px 0;
-    background: #eee;
     border-radius: 5px;
 }
 
@@ -37,23 +43,21 @@
 
 .form-style form .form-btn {
     background: white;
-    color: crimson;
+    color: blueviolet;
     text-transform: capitalize;
 }
 
 .form-style form .form-btn:hover {
-    background: crimson;
+    background: blue;
     color: white;
 }
 
-.background-image {
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 50px;
-    height: 50px;
+.form-style small {
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
-body {
-    overflow-x: hidden;
-    overflow-y: hidden;
+.list ul li {
+    color: red;
 }

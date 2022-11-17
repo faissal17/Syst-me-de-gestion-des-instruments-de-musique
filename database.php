@@ -1,5 +1,5 @@
 <?php
 
-$conn = mysqli_connect('localhost','root','','musical');
+$conn = mysqli_connect("localhost","root","","music");
 
 ?>

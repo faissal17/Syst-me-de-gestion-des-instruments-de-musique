@@ -1,5 +1,5 @@
 <?php
-
+require('scripts.php')
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -9,30 +9,33 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 	<meta content="" name="description" />
 	<meta content="" name="author" />
-  <link rel="stylesheet" href="style.css">
-    <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- parsley -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/guillaumepotier/Parsley.js@2.9.2/doc/assets/docs.css">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/guillaumepotier/Parsley.js@2.9.2/src/parsley.css">
+    
+ <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="background-image">
-        <img src="consertd.jpg" alt="">
-    </div>
+    <style>
+        body{
+  background-image: url(song.png);
+}
+    </style>
     <div class="form-style">
-        <form action="" method="POST">
+        <form action="" method="POST" id="form" data-parsley-validate>
             <h3>please login</h3>
-			<input type="email" required placeholder="email" example=>
-            <input type="password" required placeholder="password">
-            <input type="submit" name="submit" value="login" class="form-btn">
-            <p class="fs-5">don't you have an account?</p> <a class="text-decoration-none fs-5" href="singup.php">regist now</a>
+			<input type="email"    name="email"  placeholder="email" required>
+            <input type="password" name="pass"  placeholder="password" data-parsley-minlenght="5" data-parsley-message="set a password more than 5 characters" required>
+            <input type="submit" name="submit" value="login" href="music.php" class="form-btn">
+            <p class="fs-5 text-light">don't you have an account?</p> <a class="text-decoration-none fs-5 text-danger" href="singup.php">regist now</a>
         </form>
     </div>
-
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
-    </script>
-</body>   
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <script src="script.js"></script>    -->
 </html>
