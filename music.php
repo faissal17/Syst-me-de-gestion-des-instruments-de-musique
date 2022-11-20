@@ -1,6 +1,9 @@
 <?php
 
-require('scripts.php')
+require('scripts.php');
+if (!isset($_SESSION['name'])) {
+	header('Location:login.php');
+  }
 
 ?>
 
@@ -41,9 +44,9 @@ body{
             <ul class="list-unstyled">
               <h3 class="text-light">profil</h3>
               <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-              <li><a href="#" class="text-white text-decoration-none">setting</a></li>
+              <li><a href="#" class="text-white text-decoration-none">statistique</a></li>
               <li><a href="#" class="text-white text-decoration-none">help</a></li>
-              <li><a href="login.php" class="text-white text-decoration-none">log out</a></li>
+              <li><a href="logout.php" class="text-white text-decoration-none">log out</a></li>
             </ul>
           </div>
         </div>
@@ -72,8 +75,6 @@ body{
         ?>
      </div>
 </div>
-
-
 <!-- task modal -->
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
@@ -86,6 +87,7 @@ body{
 					</div>
 					<div class="modal-body">
 							<!-- This Input Allows Storing Task Index  -->
+              <input type="text" name="id" id="id">
               <input type="file" name="img"><br><br>
 							<div class="mb-3">
 								<label class="form-label">Title</label>
@@ -116,8 +118,66 @@ body{
 			</div>
 		</div>
 	</div>
-</body>
 
+  <!-- tqsks -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form action="scripts.php" method="POST" id="form-task">
+					<div class="modal-header">
+						<h5 class="modal-title">instruments</h5>
+						<a href="#" class="btn-close" data-bs-dismiss="modal"></a>
+					</div>
+					<div class="modal-body">
+							<!-- This Input Allows Storing Task Index  -->
+              <input type="text" name="idd" id="modal-id1&">
+              <input type="file" name="img"><br><br>
+							<div class="mb-3">
+								<label class="form-label">Title</label>
+								<input type="text" name="title1" class="form-control title_tasks" id="title3"/>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">price</label>
+								<input type="number" name="price1" class="form-control title_tasks" id="prix3"/>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">quantity</label>
+								<input type="number" name="quantity1" class="form-control title_tasks" id="qua3"/>
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Date</label>
+								<input name="date1" type="datetime-local" class="form-control task_datetime" id="date3"/>
+							</div>
+							<div class="mb-0">
+								<label class="form-label">Description</label>
+								<textarea name="description1" class="form-control description" rows="10" id="des3"></textarea>
+							</div>
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="btn btn-white" data-dismiss="modal">Cancel</a>
+						<button type="submit" name="edit" class="btn btn-primary task-action-btn" id="editn">edit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+<script>
+  function editinst(id){
+  document.getElementById('modal-id1&').value = id;
+document.getElementById("title3").value = document.getElementById("titlee"+id).getAttribute("data");
+document.getElementById("prix3").value = document .getElementById("prixx"+id).getAttribute("data");
+document.getElementById("qua3").value = document.getElementById("quaa"+id).getAttribute("data");
+document.getElementById("date3").value = document.getElementById("datee"+id).getAttribute("data");
+document.getElementById("des3").value = document.getElementById("desss"+id).getAttribute("data");
+  }
+</script>
+
+
+
+
+
+</body>
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

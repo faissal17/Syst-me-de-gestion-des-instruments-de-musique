@@ -29,8 +29,8 @@ require('scripts.php')
         <form action="" method="POST" id="form" data-parsley-validate>
             <h3>please login</h3>
 			<input type="email"    name="email"  placeholder="email" required>
-            <input type="password" name="pass"  placeholder="password" data-parsley-minlenght="5" data-parsley-message="set a password more than 5 characters" required>
-            <input type="submit" name="submit" value="login" href="music.php" class="form-btn">
+            <input type="password" name="password"  placeholder="password" data-parsley-minlenght="5" data-parsley-message="set a password more than 5 characters" required>
+            <input type="submit" name="login" value="login" class="form-btn">
             <p class="fs-5 text-light">don't you have an account?</p> <a class="text-decoration-none fs-5 text-danger" href="singup.php">regist now</a>
         </form>
     </div>
