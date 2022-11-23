@@ -27,7 +27,10 @@ if (!isset($_SESSION['name'])) {
 <body>
 <style>
 body{
-  background-image: url(music.jpg);
+	background-image: url(music.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 </style>
   <header>
@@ -40,11 +43,11 @@ body{
                 evry one is epic in his own way, you can start show your talent by simple things, here where evrything simple creat a hug effect.
             </p>
           </div>
-          <div class="col-sm-4 offset-md-1 py-4">
+          <div class="col-sm-4 mx-auto py-3">
             <ul class="list-unstyled">
-              <h3 class="text-light">profil</h3>
+              <h3 class="text-light">hello, <?php echo $_SESSION['name']?></h3>
               <li><a href="#" class="text-white text-decoration-none">Home</a></li>
-              <li><a href="#" class="text-white text-decoration-none">statistique</a></li>
+              <li><a href="statistique.php" class="text-white text-decoration-none">statistique</a></li>
               <li><a href="#" class="text-white text-decoration-none">help</a></li>
               <li><a href="logout.php" class="text-white text-decoration-none">log out</a></li>
             </ul>
@@ -68,8 +71,8 @@ body{
 <button type="button" data-bs-toggle="modal" data-toggle="modal" data-target="#exampleModal" class="btn btn-secondary btn-rounded px-4 rounded-pill"><i class="fa fa-plus fa-lg me-2 ms-n2 text-success-900"></i> Add instruments</button>
 </div>
 
-<div class="container-fluid mt-5">
-    <div class="row w-100">
+<div class="container-sm mt-5">
+    <div class="row w-100 d-flex justify-content-center">
        <?php
           getinser();
         ?>
@@ -87,9 +90,8 @@ body{
 					</div>
 					<div class="modal-body">
 							<!-- This Input Allows Storing Task Index  -->
-              <input type="text" name="id" id="id">
-              <input type="file" name="img"><br><br>
-							<div class="mb-3">
+							<input type="text" name="id" id="id">	
+								<div class="mb-3">
 								<label class="form-label">Title</label>
 								<input type="text" name="title" class="form-control title_tasks"/>
 							</div>
@@ -130,8 +132,7 @@ body{
 					</div>
 					<div class="modal-body">
 							<!-- This Input Allows Storing Task Index  -->
-              <input type="text" name="idd" id="modal-id1&">
-              <input type="file" name="img"><br><br>
+							<input type="text" name="idd" id="modal-id1&">
 							<div class="mb-3">
 								<label class="form-label">Title</label>
 								<input type="text" name="title1" class="form-control title_tasks" id="title3"/>

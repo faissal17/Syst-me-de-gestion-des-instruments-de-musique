@@ -19,13 +19,16 @@ require('scripts.php')
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="">
     <style>
         body{
   background-image: url(song.png);
+  background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
     </style>
-    <div class="form-style">
+    <div class="form-style mx-auto py-4">
         <form action="" method="POST" id="form" data-parsley-validate>
             <h3>please login</h3>
 			<input type="email"    name="email"  placeholder="email" required>

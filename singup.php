@@ -24,9 +24,12 @@
  <style>
         body{
   background-image: url(Tumblr.jpg);
+  background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
     </style>
-        <div class="form-style">
+        <div class="form-style mx-auto py-4">
            <form action="" method="POST" id="form" data-parsley-validate>
                 <h3>please regist</h3>
                    <input type="text" name="name"  placeholder="User Name" required>

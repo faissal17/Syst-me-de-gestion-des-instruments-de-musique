@@ -18,17 +18,17 @@ function getinser(){
     while($rows=mysqli_fetch_assoc($query)){
     $id = $rows['id'];
 echo 
-'<div class="card border-dark" style="width: 18rem">
+'<div class="card border-dark mr-4 mt-3" style="width: 18rem">
 <div class="h6 modal-id">'.$rows['id'].'</div>
-<img src="'.$rows["img"].'" class="card-img-top" />
-<div class="card-body">
-      <h2 data="'.$rows['title'].'"  id="titlee'.$id.'">'.$rows['title'].'
-         </h2>
+<img src="images.jpg" class="card-img-top"/>
+<div class="card-body mb-3 bg-body rounded">
+      <h3 class="text-truncate" data="'.$rows['title'].'"  id="titlee'.$id.'">'.$rows['title'].'
+         </h3>
               <h4 data="'.$rows['price'].'" id="prixx'.$id.'">$ '.$rows['price'].'
          </h4>
        <h5 data="'.$rows['quantity'].'" id="quaa'.$id.'">'.$rows['quantity'].'
      </h4>
-        <p data="'.$rows['description'].'" id="desss'.$id.'">'.$rows['description'].'
+        <p  class="text-truncate" data="'.$rows['description'].'" id="desss'.$id.'">'.$rows['description'].'
     </p>
         <p data="'.$rows['date'].'" id="datee'.$id.'">
         '.$rows['date'].'
@@ -94,24 +94,16 @@ function inser2(){
 
 function instrument(){
 
-//image save file
-$img=$_FILES['img']['name'];
-$tmp_img_name=$_FILES['img']['tmp_name'];
-$folder='image_uploaded/'.$img;
-move_uploaded_file($tmp_img_name,$folder);
-//end image save file
-
     $title=$_POST['title'];
     $price=$_POST['price'];
     $quantity=$_POST['quantity'];
     $date=$_POST['date'];
     $description=$_POST['description'];
-    $img=$_POST['img'];
 
 //CODE HERE
 
-    $requet="INSERT INTO instrument(`title`, `price`, `quantity`, `date`, `description`,`img`) 
-    VALUES ('$title','$price','$quantity','$date','$description','$folder')";
+    $requet="INSERT INTO instrument(`title`, `price`, `quantity`, `date`, `description`) 
+    VALUES ('$title','$price','$quantity','$date','$description')";
 
 global $conn;
 mysqli_query($conn,$requet);
@@ -128,7 +120,7 @@ function update(){
     $date=$_POST['date1'];
     $description=$_POST['description1'];
 
-    $requete="UPDATE `instrument` SET `title`='$title',`price`='$price',`quantity`='$quantity',`date`='$date]',`description`='$description'WHERE id=$update";
+    $requete="UPDATE `instrument` SET `title`='$title',`price`='$price',`quantity`='$quantity',`date`='$date',`description`='$description'WHERE id=$update";
 
     global $conn;
     mysqli_query($conn,$requete);
@@ -154,8 +146,43 @@ function deleteTask()
 		header('location: music.php');
     }
 
+    function countproduct(){
+        $requete="SELECT COUNT(id) FROM `instrument`";
+        global $conn;
+        $res=mysqli_fetch_assoc(mysqli_query($conn,$requete));
+        return $res['COUNT(id)'];
 
+    }
+    function countprice(){
+        global $conn;
+        $requete="SELECT SUM(price) FROM `instrument`;";
+        $res=mysqli_fetch_assoc(mysqli_query($conn,$requete));
+        //$total+= $rows['price'];
+        //var_dump($res[0]);
 
+        return $res['SUM(price)'];
+
+    }
+    function Maxprice(){
+        global $conn;
+        $requete="SELECT MAX(price) FROM `instrument`";
+        $res=mysqli_fetch_assoc(mysqli_query($conn,$requete));
+        //$total+= $rows['price'];
+        //var_dump($res[0]);
+
+        return $res['MAX(price)'];
+
+    }
+    function Minprice(){
+        global $conn;
+        $requete="SELECT MIN(price) FROM `instrument`";
+        $res=mysqli_fetch_assoc(mysqli_query($conn,$requete));
+        //$total+= $rows['price'];
+        //var_dump($res[0]);
+
+        return $res['MIN(price)'];
+
+    }
 
     // compared 
 
